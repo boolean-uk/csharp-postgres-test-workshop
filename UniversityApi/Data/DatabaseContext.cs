@@ -8,7 +8,7 @@ namespace UniversityApi.Data
         private string _connectionString;
         public DatabaseContext(DbContextOptions<DatabaseContext> options): base(options)
         {
-            // TODO remove this and show this
+            // loading the DefaultConnectionString value from the appsettings.json
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             _connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnectionString")!;
             this.Database.EnsureCreated();

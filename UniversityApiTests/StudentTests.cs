@@ -51,6 +51,7 @@ namespace UniversityApiTests
 
             // Assert
             Assert.That(response.StatusCode, Is.EqualTo(System.Net.HttpStatusCode.OK));
+            Assert.That(await response.Content.ReadAsStringAsync(), Is.EqualTo("[{\"id\":1,\"name\":\"John Doe\"},{\"id\":2,\"name\":\"Jane Doe\"},{\"id\":3,\"name\":\"John Smith\"},{\"id\":4,\"name\":\"Jane Smith\"}]"));
 
             Assert.That(responsePayload.Result.Count(), Is.EqualTo(4));
             Assert.That(responsePayload.Result.ElementAtOrDefault(0).Id, Is.EqualTo(expectedPayload[0].Id));
